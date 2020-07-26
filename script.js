@@ -23,3 +23,45 @@ const hour6Int = parseInt(hour6);
 const hour7Int = parseInt(hour7);
 const hour8Int = parseInt(hour8);
 const hour9Int = parseInt(hour9);
+
+// Store user input in local Storage
+
+$('#btn1').click(function() {
+    if($('#text1').val()) {
+      localStorage.removeItem('text1');
+    }
+  
+    const hour1String = JSON.stringify(hour1);
+    
+    localStorage.setItem(hour1, $('#text1').val());
+  });
+  
+  $('#btn2').click(function() {
+    if($('#text2').val()) {
+      localStorage.removeItem('text2');
+    }
+  
+    const hour2String = JSON.stringify(hour2);
+  
+    localStorage.setItem(hour2, $('#text2').val());
+  });
+  
+  $('#btn3').click(function() {
+    if($('#text3').val()) {
+      localStorage.removeItem('text3');
+    }
+  
+    const hour3String = JSON.stringify(hour3);
+  
+    localStorage.setItem(hour3, $('#text3').val());
+  });
+  
+  $('#btn4').click(function() {
+    if($('#text4').val()) {
+      localStorage.removeItem('text4');
+    }
+  
+    const hour4String = JSON.stringify(hour4);
+  
+    localStorage.setItem(hour4, $('#text4').val());
+  });
