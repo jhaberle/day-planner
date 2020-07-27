@@ -65,3 +65,94 @@ $('#btn1').click(function() {
   
     localStorage.setItem(hour4, $('#text4').val());
   });
+
+  $('#btn5').click(function() {
+    if($('#text5').val()) {
+      localStorage.removeItem('text5');
+    }
+  
+    const hour5String = JSON.stringify(hour5);
+  
+    localStorage.setItem(hour5, $('#text5').val());
+  });
+  
+  $('#btn6').click(function() {
+    if($('#text6').val()) {
+      localStorage.removeItem('text6');
+    }
+  
+    const hour6String = JSON.stringify(hour6);
+  
+    localStorage.setItem(hour6, $('#text6').val());
+  });
+  
+  $('#btn7').click(function() {
+    if($('#text7').val()) {
+      localStorage.removeItem('text7');
+    }
+  
+    const hour7String = JSON.stringify(hour7);
+  
+    localStorage.setItem(hour7, $('#text7').val());
+  })
+  
+  $('#btn8').click(function() {
+    if($('#text8').val()) {
+      localStorage.removeItem('text8');
+    }
+  
+    const hour8String = JSON.stringify(hour8);
+  
+    localStorage.setItem("text8", $('#text8').val());
+  })
+  
+  $('#btn9').click(function() { 
+    if($('#text9').val()) {
+      localStorage.removeItem('text9');
+    }
+  
+    const hour9String = JSON.stringify(hour9);
+  
+    localStorage.setItem(hour9, $('#text9').val());
+  })
+  
+  // Display the time using moment.js
+  
+  $('#currentDay').append(timeNow);
+  
+  // Color coding to reflect whether the time slot is in the past, the present or the future 
+  
+  colorCoding();
+  
+  function colorCoding() {
+  
+    TIMER = setInterval(colorCoding, 1000);
+    // Test check: hourNow24 = 20;
+    if(hourNow24 >= 9 && hourNow24 <= 17) {
+  
+      for (let i =1; i<=9 ; i++) { 
+       let hourInInt = parseInt($('#time'+i).text());
+  
+        if (hourInInt < 9) {
+          hourInInt = hourInInt + 12;
+        }
+        
+        if (hourInInt == hourNow24) {
+          $('#text'+i).css('background-color', '#FB8F78');
+          continue;
+        }
+        
+        if (hourInInt < hourNow24) {
+          $('#text'+i).css('background-color', 'lightgray');
+        } 
+        else {
+          $('#text'+i).css('background-color', 'lightgreen');
+        }
+      }
+  
+    }
+    else {
+      clearInterval(TIMER);
+      $('textarea').css('background-color', 'pink');
+    }
+  }
