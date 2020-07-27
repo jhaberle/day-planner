@@ -1,3 +1,5 @@
+// Global variables for each hour
+
 let timeNow = moment().format('dddd, MMMM Do YYYY');
 let hourNow = moment().format('h');
 let hourNow24= parseInt(moment().format('HH'));
@@ -24,7 +26,7 @@ const hour7Int = parseInt(hour7);
 const hour8Int = parseInt(hour8);
 const hour9Int = parseInt(hour9);
 
-// Store user input in local Storage
+
 
 $('#btn1').click(function() {
     if($('#text1').val()) {
@@ -116,18 +118,18 @@ $('#btn1').click(function() {
     localStorage.setItem(hour9, $('#text9').val());
   })
   
-  // Display the time using moment.js
+  // Time display
   
   $('#currentDay').append(timeNow);
   
-  // Color coding to reflect whether the time slot is in the past, the present or the future 
+  // color coding to see if time is in past or future
   
   colorCoding();
   
   function colorCoding() {
   
     TIMER = setInterval(colorCoding, 1000);
-    // Test check: hourNow24 = 20;
+
     if(hourNow24 >= 9 && hourNow24 <= 17) {
   
       for (let i =1; i<=9 ; i++) { 
